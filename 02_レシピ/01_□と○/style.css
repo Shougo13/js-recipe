@@ -1,0 +1,22 @@
+.transition {
+  transition: all 1s;
+}
+
+.square {
+  width: 150px;
+  height: 150px;
+  background: black;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.traiangle {
+  width: 0;
+  height: 0;
+  border-bottom: solid 150px black; /*だいたい1.73倍*/
+  border-top: solid 0px transparent;
+  border-left: solid 20px transparent;
+  border-right: solid 20px transparent;
+}
