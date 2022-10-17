@@ -4,22 +4,26 @@ const addButton = document.getElementById("add-button")
 
 //追加ボタンを押したら
 addButton.onclick = function () {
-  //入力欄の値(テキスト)を取り出して、textに入れる
-  const text = inputElement.value
+  //カードを作成して追加
+  const card = createCard(inputElement.value)
+  container.append(card)
 
-  //cardを作成
+  //入力欄を空にする
+  inputElement.value = ""
+}
+
+const createCard = function (text) {
+  //カードの枠を作る
   const card = document.createElement("div")
   card.className = "card"
 
-  //todoを作成
+  //テキストを表示する部分を作る
   const todo = document.createElement("div")
   todo.className = "todo"
   todo.textContent = text
-
-  //todoをcardの中に追加する
   card.append(todo)
 
-  //削除ボタンを作成
+  //削除ボタンを作る
   const deleteButton = document.createElement("div")
   deleteButton.className = "delete"
 
@@ -28,13 +32,7 @@ addButton.onclick = function () {
     //カードを削除する
     card.remove()
   }
-
-  //削除ボタンをcardの中に追加する
   card.append(deleteButton)
 
-  //cardをcontainerの中に追加する
-  container.append(card)
-
-  //入力欄を空にする
-  inputElement.value = ""
+  return card
 }
